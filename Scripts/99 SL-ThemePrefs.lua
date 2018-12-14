@@ -187,6 +187,14 @@ local SL_CustomPrefs =
 	},
 
 	-- - - - - - - - - - - - - - - - - - - -
+	-- Write OffsetData to disk after each song
+	WriteOffsetDataToDisk = {
+		Default = false,
+		Choices =  { THEME:GetString("ThemePrefs","Yes"), THEME:GetString("ThemePrefs", "No") },
+		Values	= { true, false }
+	},
+
+	-- - - - - - - - - - - - - - - - - - - -
 	-- nice meme
 	-- 0 is off, 1 is visuals only, 2 is visuals and sound.
 	nice = {
