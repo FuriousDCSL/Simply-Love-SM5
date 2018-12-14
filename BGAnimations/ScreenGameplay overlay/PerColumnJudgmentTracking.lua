@@ -8,15 +8,15 @@ for i=1,GAMESTATE:GetCurrentStyle():ColumnsPerPlayer() do
 end
 
 local buttons = {
-	dance = { "left", "down", "up", "right" },
-	pump = { "downleft", "upleft", "center", "upright", "downright" }
+	dance = { "Left", "Down", "Up", "Right" },
+	pump = { "DownLeft", "UpLeft", "Center", "UpRight", "DownRight" }
 }
 
 local held = {}
 for player in ivalues(GAMESTATE:GetHumanPlayers()) do
 	held[player] = {
-		dance = { left=false, down=false, up=false, right=false },
-		pump = { downleft=false, upleft=false, center=false, upright=false, downright=false }
+		dance = { Left=false, Down=false, Up=false, Right=false },
+		pump = { DownLeft=false, UpLeft=false, Center=false, UpRight=false, DownRight=false }
 	}
 end
 
@@ -27,9 +27,9 @@ local InputHandler = function(event)
 	if not event.PlayerNumber or not event.button then return false end
 
 	if event.type == "InputEventType_FirstPress" then
-		held[event.PlayerNumber][current_game][ToEnumShortString(event.DeviceInput.button)] = true
+		held[event.PlayerNumber][current_game][event.button] = true
 	elseif event.type == "InputEventType_Release" then
-		held[event.PlayerNumber][current_game][ToEnumShortString(event.DeviceInput.button)] = false
+		held[event.PlayerNumber][current_game][event.button] = false
 	end
 end
 
